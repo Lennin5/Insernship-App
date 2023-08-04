@@ -1,0 +1,10 @@
+{
+  "en": {
+    "txtButtonLanguage": "EN",
+    "txtListUsers": "List Users"
+  },
+  "es": {
+    "txtButtonLanguage": "ES",
+    "txtListUsers": "Listar Usuarios"
+  }
+}
