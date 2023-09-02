@@ -38,7 +38,7 @@ public class InitializeDB : MonoBehaviour
         }
 
         // Add device type to database path (SWITCH BEFORE BUILDING GAME)
-        DeviceType = "Android";
+        DeviceType = "Windows";
 
         // Add the database name
         DatabaseName = "InternshipDB.s3db";
@@ -175,7 +175,18 @@ public class InitializeDB : MonoBehaviour
                 "(8, 'Agosto', 2023, '0.75', '0.00', '0.75', '1.50'), " +
                 "(9, 'Agosto', 2023, '0.75', '3.00', '0.75', '4.50'), " +
                 "(10, 'Agosto', 2023, '0.75', '4.00', '0.75', '5.50'), " +
-                "(11, 'Agosto', 2023, '0.75', '1.75', '0.75', '3.25')";
+                "(11, 'Agosto', 2023, '0.75', '1.75', '0.75', '3.25'), " +
+                "(21, 'Agosto', 2023, '0.75', '0.25', '0.75', '1.75'), " +
+                "(22, 'Agosto', 2023, '0.75', '0.00', '0.75', '1.50'), " +
+                "(23, 'Agosto', 2023, '0.75', '0.25', '0.75', '1.75'), " +
+                "(24, 'Agosto', 2023, '0.75', '0.25', '0.75', '1.75'), " +
+                "(25, 'Agosto', 2023, '1.90', '3.25', '0.75', '5.90'), " +
+                "(28, 'Agosto', 2023, '0.75', '0.00', '0.75', '1.50'), " +
+                "(29, 'Agosto', 2023, '0.75', '0.50', '1.25', '2.50'), " +
+                "(30, 'Agosto', 2023, '0.75', '0.25', '0.75', '1.75'), " +
+                "(31, 'Agosto', 2023, '0.75', '5.25', '0.75', '6.75'), " +
+                "(1, 'Septiembre', 2023, '0.75', '5.00', '0.75', '6.50')";
+
 
 
             // Create a list of commands to execute

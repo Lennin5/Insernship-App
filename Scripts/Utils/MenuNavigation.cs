@@ -8,11 +8,13 @@ public class MenuNavigation : MonoBehaviour
 {
     public GameObject tableDailyExpenses;
     public GameObject panelWeeklyExpenses;
+    public GameObject panelMonthlyExpenses;
 
     // Start is called before the first frame update
     void Start()
     {
         panelWeeklyExpenses.SetActive(false);
+        panelMonthlyExpenses.SetActive(false);
         //tableDailyExpenses.SetActive(false);
     }
 
@@ -24,17 +26,23 @@ public class MenuNavigation : MonoBehaviour
 
     public void ButtonExpenses(string option)
     {
-        switch(option)
+        switch (option)
         {
             case "daily":
                 tableDailyExpenses.SetActive(true);
                 panelWeeklyExpenses.SetActive(false);
+                panelMonthlyExpenses.SetActive(false);
                 break;
             case "weekly":
                 tableDailyExpenses.SetActive(false);
                 panelWeeklyExpenses.SetActive(true);
+                panelMonthlyExpenses.SetActive(false);
                 break;
-        }   
-        
+            case "monthly":
+                tableDailyExpenses.SetActive(false);
+                panelWeeklyExpenses.SetActive(false);
+                panelMonthlyExpenses.SetActive(true);
+                break;
+        }
     }
 }
