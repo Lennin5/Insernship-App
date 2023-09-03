@@ -143,71 +143,74 @@ public class InitializeDB : MonoBehaviour
         {
             Debug.Log("Error when creating table: " + e.Message);
         }
-
-        // Close db connection
-        dbconn.Close();
         Debug.Log("<color=" + limaColor + ">Closed connection to database!</color>");
     }
 
+
+
     private void InsertDefaultData()
     {
+        string[] insertQueries = {
+            "INSERT INTO Expenses (day, month_letter, year, outward_price, launch_price, return_price, total_expenses) VALUES (10, 'Julio', 2023, '0.00', '3.00', '1.00', '4.00')",
+            "INSERT INTO Expenses (day, month_letter, year, outward_price, launch_price, return_price, total_expenses) VALUES (11, 'Julio', 2023, '0.75', '3.00', '0.75', '4.50')",
+            "INSERT INTO Expenses (day, month_letter, year, outward_price, launch_price, return_price, total_expenses) VALUES (12, 'Julio', 2023, '0.75', '3.00', '0.75', '4.50')",
+            "INSERT INTO Expenses (day, month_letter, year, outward_price, launch_price, return_price, total_expenses) VALUES (13, 'Julio', '2023', '0.75', '2.50', '0.75', '4.00')",
+            "INSERT INTO Expenses (day, month_letter, year, outward_price, launch_price, return_price, total_expenses) VALUES (14, 'Julio', '2023', '0.75', '3.00', '0.75', '4.50')",
+            "INSERT INTO Expenses (day, month_letter, year, outward_price, launch_price, return_price, total_expenses) VALUES (17, 'Julio', '2023', '0.75', '2.50', '0.75', '4.00')",
+            "INSERT INTO Expenses (day, month_letter, year, outward_price, launch_price, return_price, total_expenses) VALUES (18, 'Julio', '2023', '0.75', '3.00', '0.75', '4.50')",
+            "INSERT INTO Expenses (day, month_letter, year, outward_price, launch_price, return_price, total_expenses) VALUES (19, 'Julio', '2023', '0.75', '2.50', '0.75', '4.00')",
+            "INSERT INTO Expenses (day, month_letter, year, outward_price, launch_price, return_price, total_expenses) VALUES (20, 'Julio', '2023', '0.75', '2.50', '0.75', '4.00')",
+            "INSERT INTO Expenses (day, month_letter, year, outward_price, launch_price, return_price, total_expenses) VALUES (21, 'Julio', '2023', '0.75', '2.75', '0.75', '4.25')",
+            "INSERT INTO Expenses (day, month_letter, year, outward_price, launch_price, return_price, total_expenses) VALUES (24, 'Julio', '2023', '0.75', '0.00', '0.75', '1.50')",
+            "INSERT INTO Expenses (day, month_letter, year, outward_price, launch_price, return_price, total_expenses) VALUES (25, 'Julio', '2023', '0.75', '0.00', '0.75', '1.50')",
+            "INSERT INTO Expenses (day, month_letter, year, outward_price, launch_price, return_price, total_expenses) VALUES (26, 'Julio', '2023', '0.75', '0.25', '0.75', '1.75')",
+            "INSERT INTO Expenses (day, month_letter, year, outward_price, launch_price, return_price, total_expenses) VALUES (27, 'Julio', '2023', '0.75', '1.25', '0.75', '2.75')",
+            "INSERT INTO Expenses (day, month_letter, year, outward_price, launch_price, return_price, total_expenses) VALUES (28, 'Julio', '2023', '0.75', '5.50', '0.75', '7.00')",
+            "INSERT INTO Expenses (day, month_letter, year, outward_price, launch_price, return_price, total_expenses) VALUES (7, 'Agosto', '2023', '0.75', '0.00', '0.75', '1.50')",
+            "INSERT INTO Expenses (day, month_letter, year, outward_price, launch_price, return_price, total_expenses) VALUES (8, 'Agosto', '2023', '0.75', '0.00', '0.75', '1.50')",
+            "INSERT INTO Expenses (day, month_letter, year, outward_price, launch_price, return_price, total_expenses) VALUES (9, 'Agosto', '2023', '0.75', '3.00', '0.75', '4.50')",
+            "INSERT INTO Expenses (day, month_letter, year, outward_price, launch_price, return_price, total_expenses) VALUES (10, 'Agosto', '2023', '0.75', '4.00', '0.75', '5.50')",
+            "INSERT INTO Expenses (day, month_letter, year, outward_price, launch_price, return_price, total_expenses) VALUES (11, 'Agosto', '2023', '0.75', '1.75', '0.75', '3.25')",
+            "INSERT INTO Expenses (day, month_letter, year, outward_price, launch_price, return_price, total_expenses) VALUES (21, 'Agosto', '2023', '0.75', '0.25', '0.75', '1.75')",
+            "INSERT INTO Expenses (day, month_letter, year, outward_price, launch_price, return_price, total_expenses) VALUES (22, 'Agosto', '2023', '0.75', '0.00', '0.75', '1.50')",
+            "INSERT INTO Expenses (day, month_letter, year, outward_price, launch_price, return_price, total_expenses) VALUES (23, 'Agosto', '2023', '0.75', '0.25', '0.75', '1.75')",
+            "INSERT INTO Expenses (day, month_letter, year, outward_price, launch_price, return_price, total_expenses) VALUES (24, 'Agosto', '2023', '0.75', '0.25', '0.75', '1.75')",
+            "INSERT INTO Expenses (day, month_letter, year, outward_price, launch_price, return_price, total_expenses) VALUES (25, 'Agosto', '2023', '1.90', '3.25', '0.75', '5.90')",
+            "INSERT INTO Expenses (day, month_letter, year, outward_price, launch_price, return_price, total_expenses) VALUES (25, 'Agosto', '2023', '1.90', '3.25', '0.75', '5.90')",
+            "INSERT INTO Expenses (day, month_letter, year, outward_price, launch_price, return_price, total_expenses) VALUES (28, 'Agosto', '2023', '0.75', '0.00', '0.75', '1.50')",
+            "INSERT INTO Expenses (day, month_letter, year, outward_price, launch_price, return_price, total_expenses) VALUES (29, 'Agosto', '2023', '0.75', '0.50', '1.25', '2.50')",
+            "INSERT INTO Expenses (day, month_letter, year, outward_price, launch_price, return_price, total_expenses) VALUES (30, 'Agosto', '2023', '0.75', '0.25', '0.75', '1.75')",
+            "INSERT INTO Expenses (day, month_letter, year, outward_price, launch_price, return_price, total_expenses) VALUES (31, 'Agosto', '2023', '0.75', '5.25', '0.75', '6.75')",
+            "INSERT INTO Expenses (day, month_letter, year, outward_price, launch_price, return_price, total_expenses) VALUES (1, 'Septiembre', '2023', '0.75', '5.00', '0.75', '6.50')"
+        };
+
         try
         {
-            string insertExpenseQuery =
-                "INSERT INTO Expenses (day, month_letter, year, outward_price, launch_price, return_price, total_expenses) " +
-                "VALUES " +
-                "(10, 'Julio', 2023, '0.00', '3.00', '1.00', '4.00'), " +
-                "(11, 'Julio', 2023, '0.75', '3.00', '0.75', '4.50'), " +
-                "(12, 'Julio', 2023, '0.75', '3.00', '0.75', '4.50'), " +
-                "(13, 'Julio', 2023, '0.75', '2.50', '0.75', '4.00'), " +
-                "(14, 'Julio', 2023, '0.75', '3.00', '0.75', '4.50'), " +
-                "(17, 'Julio', 2023, '0.75', '2.50', '0.75', '4.00'), " +
-                "(18, 'Julio', 2023, '0.75', '3.00', '0.75', '4.50'), " +
-                "(19, 'Julio', 2023, '0.75', '2.50', '0.75', '4.00'), " +
-                "(20, 'Julio', 2023, '0.75', '2.50', '0.75', '4.00'), " +
-                "(21, 'Julio', 2023, '0.75', '2.75', '0.75', '4.25'), " +
-                "(24, 'Julio', 2023, '0.75', '0.00', '0.75', '1.50'), " +
-                "(25, 'Julio', 2023, '0.75', '0.00', '0.75', '1.50'), " +
-                "(26, 'Julio', 2023, '0.75', '0.25', '0.75', '1.75'), " +
-                "(27, 'Julio', 2023, '0.75', '1.25', '0.75', '2.75'), " +
-                "(28, 'Julio', 2023, '0.75', '5.50', '0.75', '7.00'), " +
-                "(7, 'Agosto', 2023, '0.75', '0.00', '0.75', '1.50'), " +
-                "(8, 'Agosto', 2023, '0.75', '0.00', '0.75', '1.50'), " +
-                "(9, 'Agosto', 2023, '0.75', '3.00', '0.75', '4.50'), " +
-                "(10, 'Agosto', 2023, '0.75', '4.00', '0.75', '5.50'), " +
-                "(11, 'Agosto', 2023, '0.75', '1.75', '0.75', '3.25'), " +
-                "(21, 'Agosto', 2023, '0.75', '0.25', '0.75', '1.75'), " +
-                "(22, 'Agosto', 2023, '0.75', '0.00', '0.75', '1.50'), " +
-                "(23, 'Agosto', 2023, '0.75', '0.25', '0.75', '1.75'), " +
-                "(24, 'Agosto', 2023, '0.75', '0.25', '0.75', '1.75'), " +
-                "(25, 'Agosto', 2023, '1.90', '3.25', '0.75', '5.90'), " +
-                "(28, 'Agosto', 2023, '0.75', '0.00', '0.75', '1.50'), " +
-                "(29, 'Agosto', 2023, '0.75', '0.50', '1.25', '2.50'), " +
-                "(30, 'Agosto', 2023, '0.75', '0.25', '0.75', '1.75'), " +
-                "(31, 'Agosto', 2023, '0.75', '5.25', '0.75', '6.75'), " +
-                "(1, 'Septiembre', 2023, '0.75', '5.00', '0.75', '6.50')";
+            // Open a new database connection
+            IDbConnection insertConnection = new SqliteConnection(conn);
+            insertConnection.Open();
 
+            // Create a command to execute the insert queries
+            IDbCommand insertCommand = insertConnection.CreateCommand();
 
-
-            // Create a list of commands to execute
-            List<string> commandsToInsert = new List<string>();
-            commandsToInsert.Add(insertExpenseQuery);
-
-            foreach (string command in commandsToInsert)
+            foreach (string query in insertQueries)
             {
-                // Table name extracted from command query
-                string tableName = command.Split(' ')[2];
-                // Execute command
-                dbcmd = dbconn.CreateCommand();
-                dbcmd.CommandText = command;
-                reader = dbcmd.ExecuteReader();
-                Debug.Log("<color=magenta>Default data inserted on table " + tableName + " successfully!</color>");
+                insertCommand.CommandText = query;
+                insertCommand.ExecuteNonQuery();
             }
+
+            // Close the connection
+            insertConnection.Close();
+
+            Debug.Log("<color=cyan>Default data inserted successfully!</color>");
         }
-        catch (Exception)
+        catch (Exception e)
         {
-            Debug.LogError("Error when inserting default data");
+            Debug.LogError("Error when inserting default data: " + e.Message);
         }
     }
+
+
+
 
 }
