@@ -143,6 +143,8 @@ public class InitializeDB : MonoBehaviour
         {
             Debug.Log("Error when creating table: " + e.Message);
         }
+        dbconn.Close();
+        dbconn.Dispose();
         Debug.Log("<color=" + limaColor + ">Closed connection to database!</color>");
     }
 
