@@ -52,7 +52,7 @@ public class ReadData : MonoBehaviour
         {
             dbconn.Open(); // Open connection to the database.
             IDbCommand dbcmd = dbconn.CreateCommand();
-            string sqlQuery = "SELECT id, day, month_letter, year, outward_price, launch_price, return_price, total_expenses FROM Expenses";
+            string sqlQuery = "SELECT id, day, month_letter, year, outward_price, launch_price, return_price, total_expenses FROM Expenses ORDER BY id DESC";
             dbcmd.CommandText = sqlQuery;
             IDataReader reader = dbcmd.ExecuteReader();
 
